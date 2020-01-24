@@ -1,12 +1,12 @@
 # mfa-to-csv
 
-# AUTHOR: 
+# Author
 Andrew Buultjens
 
-# ABOUT:
+# Synopsis
 Converts a multi fasta alignment into a csv file with header and index columns
 
-# USAGE:
+# Usage
 ```
 % sh mfa-to-csv.sh [ALIGNMENT] [fofn.txt] [OUTFILE]
 ```
