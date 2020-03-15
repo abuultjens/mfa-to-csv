@@ -75,8 +75,11 @@ echo '' >> ${RAND}_seq_1-${LEN}.tr.csv
 # cat header to csv
 cat ${RAND}_seq_1-${LEN}.tr.csv ${RAND}_tmp2.txt | sed 's/.$//' > ${RAND}_tmp3.txt
 
-# paste in index and transpose matrix
-paste ${RAND}_fofn.txt ${RAND}_tmp3.txt | datamash transpose -H | tr '\t' ',' > ${OUTFILE}
+# paste in index
+paste ${RAND}_fofn.txt ${RAND}_tmp3.txt | tr '\t' ',' > ${RAND}_tmp_${OUTFILE}
+
+# transpose matrix
+tr ',' '\t' < ${RAND}_tmp_${OUTFILE} | datamash transpose -H | tr '\t' ',' > ${OUTFILE}
 
 #----------------------------------------------------
 
@@ -86,6 +89,7 @@ rm ${RAND}_tmp1.txt
 rm ${RAND}_tmp2.txt
 rm ${RAND}_tmp3.txt
 rm ${RAND}_seq_1-${LEN}.tr.csv
+rm ${RAND}_tmp_${OUTFILE}
 
 #----------------------------------------------------
 
